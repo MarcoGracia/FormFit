@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import android.content.Context;
@@ -26,6 +28,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
@@ -45,6 +49,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import es.mgj.base.Actividad;
+import es.mgj.base.Rutina;
 import es.mgj.database.BasedeDatos;
 import es.mgj.formfit.R;
 import es.mgj.fragments.TabIniciarActividad;
@@ -64,25 +69,58 @@ public class MapActivity extends FragmentActivity implements OnClickListener,
 	private long comienzoMilis;
 	private long finMilis;
 	private long ultimoAviso;
-	private Button btMusica;
+	private ImageButton btMusica;
 	private boolean playing = true;
 	private List<LatLng> locations = new ArrayList<LatLng>();
 	final Context c = this;
 	private SharedPreferences preferencias;
 	private LocationClient locationClient;
+	private Rutina rutina;
+	private TextView tvFase1Total;
+	private TextView tvFase2Total;
+	private TextView tvFase3Total;
+	private TextView tvFase1;
+	private TextView tvFase2;
+	private TextView tvFase3;
+	private TextView tvTotalTiempo;
+	private Button btParar;
+	
 
 	private static final LocationRequest LOC_REQUEST = LocationRequest.create()
-			.setInterval(5000).setFastestInterval(16)
+			.setInterval(5000).setFastestInterval(5)
 			.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.mapa);
 		Intent i = getIntent();
+		
 		b = i.getExtras();
+		rutina = (Rutina) b.get("rutina");
+		
+		this.tvFase1Total = (TextView)this.findViewById(R.id.tvFase1MapaTiempoTotal);
+		this.tvFase2Total = (TextView)this.findViewById(R.id.tvFase2MapaTiempoTotal);
+		this.tvFase3Total = (TextView)this.findViewById(R.id.tvFase3MapaTiempoTotal);
+		this.tvFase1 = (TextView)this.findViewById(R.id.tvFase1TiempoActual);
+		this.tvFase2 = (TextView)this.findViewById(R.id.tvFase2TiempoActual);
+		this.tvFase3 = (TextView)this.findViewById(R.id.tvFase3TiempoActual);
+		this.tvTotalTiempo = (TextView)this.findViewById(R.id.tvTiempoTotalMarcador);
+		
+        Timer timer = new Timer("Printer");
+ 
+        MyTask t = new MyTask(this);
+        
+        timer.schedule(t, 0, 1000);
+		
+		if(!rutina.getNombre().equals("Sin rutina")){
+			cargarRutina();
+		}
+		
+		
 		preferencias = PreferenceManager.getDefaultSharedPreferences(c);
-		Button btParar = (Button) findViewById(R.id.btParar);
-		btMusica = (Button) findViewById(R.id.btMusica);
+		btParar = (Button) findViewById(R.id.btParar);
+		btMusica = (ImageButton) findViewById(R.id.btMusica);
 		btParar.setOnClickListener(this);
 		btMusica.setOnClickListener(this);
 
@@ -123,6 +161,14 @@ public class MapActivity extends FragmentActivity implements OnClickListener,
 
 	}
 
+	private void cargarRutina() {
+
+		this.tvFase1Total.setText(String.valueOf( this.rutina.getDuracionFase1()) + "0" );
+		this.tvFase2Total.setText(String.valueOf( this.rutina.getDuracionFase2()) + "0" );
+		this.tvFase3Total.setText(String.valueOf( this.rutina.getDuracionFase3()) + "0" );
+		
+	}
+
 	@Override
 	protected void onStart() {
 
@@ -154,9 +200,7 @@ public class MapActivity extends FragmentActivity implements OnClickListener,
 		
 		i.putExtra("command", "pause");
 		this.sendBroadcast(i);
-		
-		this.btMusica.setText("Reanudar Musica");
-		
+
 		this.playing = !this.playing;
 
 	}
@@ -167,10 +211,6 @@ public class MapActivity extends FragmentActivity implements OnClickListener,
 		
 		i.putExtra("command", "play");
 		this.sendBroadcast(i);
-		
-		
-		this.btMusica.setText("Pausar Musica");
-		
 		
 		this.playing = !this.playing;
 		
@@ -325,6 +365,116 @@ public class MapActivity extends FragmentActivity implements OnClickListener,
 	public void onAudioFocusChange(int focusChange) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	class MyTask extends TimerTask {
+	    //times member represent calling times.
+		int minutosTotal = 0;
+		
+		int minutosTotalFase1 = 0;
+		int minutosTotalFase2 = 0;
+		int minutosTotalFase3 = 0;
+		float segundosTotalFase1 = 0;
+		float segundosTotalFase2 = 0;
+		float segundosTotalFase3 = 0;
+		
+	    private int timesTotal = 0;
+
+	    private MapActivity mapActivity;
+	    boolean fase1 = true;
+	    boolean fase2 = false;
+	    boolean fase3 = false;
+	    
+	    public MyTask( MapActivity mapActivity ){
+	    	this.mapActivity = mapActivity;
+	    }
+
+	    public void run() {
+	    	this.mapActivity.runOnUiThread(new Runnable(){
+
+				@Override
+				public void run() {
+					
+					if( timesTotal - minutosTotal * 60 == 60 ){
+			    		minutosTotal++;
+			    	}
+					
+			    	timesTotal++;
+			        mapActivity.tvTotalTiempo.setText( 
+			        		String.valueOf( minutosTotal ) + "." + String.valueOf( timesTotal - minutosTotal * 60 ));
+			        
+			        if(!rutina.getNombre().equals("Sin rutina")){
+			        	
+						if( fase1 ){
+							
+							segundosTotalFase1 ++ ;
+							
+							if( segundosTotalFase1 - minutosTotalFase1 * 60 == 60 ){
+								minutosTotalFase1++;
+					    	}
+							
+							float dec = segundosTotalFase1 / 60f;
+							
+							if( dec >= rutina.getDuracionFase1() ){
+								
+								mapActivity.tvFase1.setText( String.valueOf( rutina.getDuracionFase1() +"0" ) );
+								fase1=false;
+								fase2=true;
+								
+							}else {
+								
+								mapActivity.tvFase1.setText( 
+										String.valueOf( minutosTotalFase1 ) + "." + String.valueOf( (int)segundosTotalFase1 - minutosTotalFase1 * 60 ));
+							}
+	    							
+						}
+						
+						if( fase2 ){
+							
+							segundosTotalFase2 ++ ;
+							
+							float dec = segundosTotalFase2 / 60;
+							
+							if( dec >= rutina.getDuracionFase2() ){
+								
+								mapActivity.tvFase2.setText( String.valueOf( rutina.getDuracionFase2() )+"0"  );
+								
+								fase2=false;
+								fase3=true;
+								
+							}else {
+								mapActivity.tvFase2.setText( 
+										String.valueOf( minutosTotalFase2 ) + "." + String.valueOf( (int)segundosTotalFase2 - minutosTotalFase2 * 60 ));
+							}
+	    						    					
+						}
+						
+						if( fase3 ){
+							
+							segundosTotalFase3 ++ ;
+							
+							float dec = segundosTotalFase3 / 60;
+							
+							if( dec >= rutina.getDuracionFase3() ){
+								
+								mapActivity.tvFase3.setText( String.valueOf( rutina.getDuracionFase3() )+"0"  );
+								fase3=true;
+								mapActivity.btParar.performClick();
+								
+							}else {
+								mapActivity.tvFase3.setText( 
+										String.valueOf( minutosTotalFase3 ) + "." + String.valueOf( (int)segundosTotalFase3 - minutosTotalFase3 * 60 ));
+							}
+
+						}
+						
+					}
+					
+				}
+	    		
+	    	});
+	    	
+	    }
 	}
 
 }

@@ -16,11 +16,11 @@ import android.view.View.OnCreateContextMenuListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListView;
+import es.mgj.activitys.VerActividad;
 import es.mgj.base.Actividad;
 import es.mgj.database.BasedeDatos;
 import es.mgj.formfit.AdaptadorActividades;
 import es.mgj.formfit.R;
-import es.mgj.formfit.VerActividad;
 
 public class TabListaActividades extends Fragment implements OnCreateContextMenuListener{
 	

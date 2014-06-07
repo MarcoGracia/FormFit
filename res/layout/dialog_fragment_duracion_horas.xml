@@ -26,7 +26,7 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/tvTipoActividadMapa"
             android:layout_width="72dp"
             android:layout_height="wrap_content"
             android:text="@string/minutos" />

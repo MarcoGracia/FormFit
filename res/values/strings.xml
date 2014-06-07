@@ -2,6 +2,7 @@
 <resources>
 
     <string name="eliminar">Eliminar</string>
+    <string name="app_id">300785456764524</string>
     <string name="ver">Ver</string>
     <string name="app_name">Fit Form</string>
     <string name="action_settings">Settings</string>
@@ -58,7 +59,7 @@
     <string name="titulo_tab_resumen_diario">Resumen diario</string>
     <string name="titulo_tab_rutina">Introducir rutina</string>
     <string name="empty">----</string>
-    <string name="btPausarMusica">Pausar Musica</string>
+    <string name="btPausarMusica">Pausar</string>
     <string name="btMusicStartActivity">Musica</string>
     <string name="btClimaIniciarActividad">Clima</string>
     <string name="title_activity_activity_mostrar_clima">ActivityMostrarClima</string>
@@ -77,5 +78,12 @@
     <string name="minutos">minutos</string>
     <string name="aceptar">Aceptar</string>
     <string name="title_activity_dialog_fragment_duracion_horas">DialogFragmentDuracionHorasActivity</string>
+    <string name="tvRutina">Rutina:</string>
+    <string name="tvFase1Mapa">Fase 1:</string>
+    <string name="sintiempo">--.--</string>
+    <string name="separador">/</string>
+    <string name="tvfase2Mapa">Fase 2:</string>
+    <string name="tvFase3Mapa">Fase 3:</string>
+    <string name="tvTiempoTotal">Tiempo total</string>
 
 </resources>

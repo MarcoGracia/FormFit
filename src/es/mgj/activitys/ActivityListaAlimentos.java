@@ -20,7 +20,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import es.mgj.base.Alimento;
 import es.mgj.base.TipoAlimento;
 import es.mgj.formfit.R;
-import es.mgj.formfit.VerActividad;
 import es.mgj.fragments.TabAlimentos;
 
 public class ActivityListaAlimentos extends Activity implements OnCreateContextMenuListener{
