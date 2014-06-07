@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string-array name="unidadesdistancia">
+      <item>Metros</item>
+      <item>Millas</item>
+   </string-array>
+    <string-array name="tipoactividad">
+      <item>Footing</item>
+      <item>Ciclismo</item>
+      <item>Patinaje</item>
+   </string-array>
+</resources>

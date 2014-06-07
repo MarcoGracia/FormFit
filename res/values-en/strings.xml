@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="eliminar">Delete</string>
+    <string name="ver">View</string>
+    <string name="app_name">Fit Form</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="bienvenido">Wellcome to Fit Form</string>
+    <string name="run">Run</string>
+    <string name="acercade">About</string>
+    <string name="cancelar">Cancel</string>
+    <string name="rest">Rest</string>
+    <string name="comenzarActividad">Start activity</string>
+    <string name="preferencias">Preferences</string>
+    <string name="configuracion">Configuration</string>
+    <string name="desplegarmenu">Deploy</string>
+    <string name="acerda_de_mensaje">Fit Form ver 1.0\n(c)All rights reserved\n\nAuthor: Marco Gracia Jerez</string>
+    <string name="acerda_de_titulo">About</string>
+    <string name="title_activity_main_activity_tabs">Fit Form</string>
+    <string name="titulo_tab_alimentos">Food</string>
+    <string name="titulo_tab_actividad">Activity</string>
+    <string name="titulo_tab_lista_actividades">My activities</string>
+    <string name="titulo_tab_resumen">summary</string>
+    <string name="title_activity_configuracion_cuenta">AcountConfiguration</string>
+    <string name="balanceimc">IMC ballance</string>
+    <string name="nombre">Name</string>
+    <string name="nombrecompleto">Fullname</string>
+    <string name="fechadenacimiento">Birthdate</string>
+    <string name="hombre">Man</string>
+    <string name="mujer">Woman</string>
+    <string name="sexo">Sex</string>
+    <string name="peso">Weight</string>
+    <string name="altura">Height</string>
+    <string name="objetivo">Objetive:</string>
+    <string name="perdidapeso">Weight loss</string>
+    <string name="mantenimiento">Maintenance</string>
+    <string name="gananciapeso">Weight gain</string>
+    <string name="guardar">Save</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="iniciaractividad">Start activity</string>
+    <string name="gps">GPS</string>
+    <string name="parar">Stop</string>
+    <string name="title_activity_ver_actividad">See activity</string>
+    <string name="avisodesaudio">Audio alerts</string>
+    <string name="unidadesdedistancia">Distance units</string>
+    <string name="saltarinicio">Skip starting screen</string>
+
+</resources>

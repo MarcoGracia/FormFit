@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="Visibilidad">
+        <CheckBoxPreference
+            android:key="avisos_audio" 
+            android:title="@string/avisodesaudio"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:summary="Configuración actividades">
+        <ListPreference
+            android:key="unidades_distancia"
+            android:entries="@array/unidadesdistancia"
+            android:entryValues="@array/unidadesdistancia" 
+            android:title="@string/unidadesdedistancia"/>
+        <CheckBoxPreference android:key="saltar_inicio" android:title="@string/saltarinicio"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>

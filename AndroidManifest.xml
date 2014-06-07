@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="es.mgj.formfit"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="es.mgj.activitys.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="es.mgj.activitys.MainActivityTabs"
+            android:label="@string/title_activity_main_activity_tabs" >
+        </activity>
+        <activity
+            android:name="es.mgj.activitys.ConfiguracionCuenta"
+            android:label="@string/title_activity_configuracion_cuenta" >
+        </activity>
+        <activity
+            android:name="es.mgj.formfit.Preferencias"
+            android:label="@string/preferencias" >
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyD0MWgvz17sxC0QRnN5TLi7zn8zkJaZjxM" />
+
+        <activity
+            android:name="es.mgj.activitys.MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
+        <activity
+            android:name="es.mgj.formfit.VerActividad"
+            android:label="@string/title_activity_ver_actividad" >
+        </activity>
+        <activity
+            android:name="es.mgj.activitys.ActivityListaAlimentos"
+            android:label="@string/title_activity_activity_lista_alimentos" >
+        </activity>
+        <activity
+            android:name="es.mgj.activitys.ActivityAnadirAlimento"
+            android:label="@string/title_activity_activity_anadir_alimento" >
+        </activity>
+        <activity
+            android:name="es.mgj.fragments.TabResumenDiario"
+            android:label="@string/title_activity_tab_resumen_diario" >
+        </activity>
+        <activity
+            android:name="es.mgj.activitys.ActivityMostrarClima"
+            android:label="@string/title_activity_activity_mostrar_clima" >
+        </activity>
+        <activity
+            android:name="es.mgj.fragments.FragmentIntroducirRutina"
+            android:label="@string/title_activity_fragment_introducir_rutina" >
+        </activity>
+        <activity
+            android:name="es.mgj.fragments.DialogFragmentDuracionHorasActivity"
+            android:label="@string/title_activity_dialog_fragment_duracion_horas" >
+        </activity>
+    </application>
+
+</manifest>

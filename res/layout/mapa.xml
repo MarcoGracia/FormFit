@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/mapa"
+        android:name="es.mgj.formfit.Mapa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.83"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btMusica"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.21"
+            android:text="@string/btPausarMusica" />
+
+        <Button
+            android:id="@+id/btParar"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_weight="0.07"
+            android:text="@string/parar" />
+
+    </LinearLayout>
+
+</LinearLayout>

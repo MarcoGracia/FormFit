@@ -1,0 +1,105 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="es.mgj.formfit.ActivityMostrarClima$PlaceholderFragment" >
+
+    <ImageView
+        android:id="@+id/ivMapaActividad"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:alpha="0.50"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sky" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:layout_width="186dp"
+            android:layout_height="398dp"
+            android:layout_centerHorizontal="true" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="186dp"
+                android:layout_height="398dp"
+                android:layout_marginTop="46dp"
+                android:alpha="0.65"
+                android:src="@drawable/frame" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/ivIconoClima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="100dp"
+                    android:src="@drawable/weezle_cloud" />
+
+                <TextView
+                    android:id="@+id/tvTemperaturaMaxima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/ivIconoClima"
+                    android:layout_alignTop="@+id/ivIconoClima"
+                    android:text="@string/empty"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTemperaturaMinima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/ivIconoClima"
+                    android:layout_alignTop="@+id/ivIconoClima"
+                    android:text="@string/empty"
+                    android:textSize="20sp"
+                    android:textColor="@color/DarkGray" />
+
+                <TextView
+                    android:id="@+id/tvDescripcionClima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ivIconoClima"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/empty"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvViento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/empty"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvNubes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvDescripcionClima"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/empty"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

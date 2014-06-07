@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/menu_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/etNombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="75dp"
+            android:ems="10"
+            android:hint="@string/nombrecompleto"
+            android:inputType="textPersonName" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btFechaNacimiento"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="75dp"
+            android:layout_weight="0.61"
+            android:onClick="showTimePickerDialog"
+            android:text="@string/fechadenacimiento" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioGroup
+                android:id="@+id/rgSexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/sexo" >
+
+                <RadioButton
+                    android:id="@+id/rbHombre"
+                    android:layout_width="250dp"
+                    android:layout_height="118dp"
+                    android:checked="true"
+                    android:textSize="30dp"
+                    android:text="@string/hombre"/>
+
+                <RadioButton
+                    android:id="@+id/rbMujer"
+                    android:layout_width="250dp"
+                    android:layout_height="118dp"
+                    android:text="@string/mujer"
+                    android:textSize="30dp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etPeso"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="75dp"
+            android:ems="10"
+            android:hint="@string/peso"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/etAltura"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="75dp"
+            android:ems="20"
+            android:hint="@string/altura"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tvTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:textSize="30dp"
+            android:text="@string/objetivo" />
+
+        <RadioGroup
+            android:id="@+id/rgObjetivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp" >
+
+            <RadioButton
+                android:id="@+id/rbPerdidaPeso"
+                android:layout_width="match_parent"
+                android:layout_height="118dp"
+                android:checked="true"
+                android:text="@string/perdidapeso"
+                android:textSize="30dp" />
+
+            <RadioButton
+                android:id="@+id/rbMantenimiento"
+                android:layout_width="396dp"
+                android:layout_height="118dp"
+                android:checked="true"
+                android:text="@string/mantenimiento"
+                android:textSize="30dp" />
+
+            <RadioButton
+                android:id="@+id/rbGananciaPeso"
+                android:layout_width="match_parent"
+                android:layout_height="118dp"
+                android:checked="true"
+                android:text="@string/gananciapeso"
+                android:textSize="30dp" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btGuardar"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+            	android:layout_marginTop="75dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="75dp"
+                android:text="@string/guardar" />
+
+            <Button
+                android:id="@+id/btCancelar"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+            	android:layout_marginTop="75dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="75dp"
+                android:text="@string/cancelar" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
